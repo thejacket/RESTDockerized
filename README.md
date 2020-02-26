@@ -14,6 +14,7 @@ Instalacja krok po kroku
 `docker-compose build`
 3. Uruchomić kontener przez
 `docker-compose up`
+
 W terminalu powinny wyświetlić się komunikaty brokera, Celery, monitora Celery-flower i flaskowej aplikacji.
 
 Przykład komunikacji z API
