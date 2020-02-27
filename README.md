@@ -2,21 +2,22 @@
 
 ![Architektura](diagram1.jpg?raw=true "Architektura")
 
-- 4 endpointy API: ¿¹danie tekstu z zadanego URL, ¿¹danie zdjêæ, pobranie zasobów i sprawdzenie statusu zadania
-- Zarz¹dzanie workerami przez Celery - dowolna skalowalnoœæ
+- 4 endpointy API: Å¼Ä…danie tekstu z zadanego URL, Å¼Ä…danie zdjÄ™Ä‡, pobranie zasobÃ³w i sprawdzenie statusu zadania
+- ZarzÄ…dzanie workerami przez Celery - dowolna skalowalnoÅ›Ä‡
 - Broker redis
 - Scraping stron z wykorzystaniem Selenium + headless Chrome-Webdriver oraz requests
 
 Instalacja krok po kroku
 -------------
-1. Pobraæ repozytorium
-2. Zbudowaæ kontener dockera przez docker-compose
+1. PobraÄ‡ repozytorium
+2. ZbudowaÄ‡ kontener dockera przez docker-compose
 `docker-compose build`
-3. Uruchomiæ przez
+3. UruchomiÄ‡ kontener przez
 `docker-compose up`
-W terminalu powinny wyœwietliæ siê komunikaty brokera, Celery i flaskowej aplikacji.
 
-Przyk³ad komunikacji z API
+W terminalu powinny wyÅ›wietliÄ‡ siÄ™ komunikaty brokera, Celery, monitora Celery-flower i flaskowej aplikacji.
+
+PrzykÅ‚ad komunikacji z API
 -------------
 `curl -X 'POST' <docker-machine ip>:5000/textFromWebsite/<websiteUrl>`
 
@@ -27,19 +28,19 @@ Przyk³ad komunikacji z API
 `curl <docker-machine ip>:5000/status/<taskId>`
 
 
-- Dwa pierwsze endpointy s³u¿¹ do scrapowania tekstu i obrazów z zadanego URL do lokalnego katalogu w którym uruchomiona jest aplikacja
-Oba zwracaj¹ przy przyjêciu ¿¹dania id zadania, co pozwala na œledzenie jego statusu
-- /downloadResources/ spakuje i wyœle zasoby w ZIP, jeœli s¹ one na serwerze
-- /status/ pozwala œledziæ status wykonywanego zadania
+- Dwa pierwsze endpointy sÅ‚uÅ¼Ä… do scrapowania tekstu i obrazÃ³w z zadanego URL do lokalnego katalogu w ktÃ³rym uruchomiona jest aplikacja
+Oba zwracajÄ… przy przyjÄ™ciu Å¼Ä…dania id zadania, co pozwala na Å›ledzenie jego statusu
+- /downloadResources/ spakuje i wyÅ›le zasoby w ZIP, jeÅ›li sÄ… one na serwerze
+- /status/ pozwala Å›ledziÄ‡ status wykonywanego zadania
 
 
 Do wykonania (TODO)
 -------------
-0. !! Nie dzia³a pobieranie zasobów !!
-1. Dodaæ testy
-2. Wyabstrahowaæ metodê pobierania zasobów z URL, by mo¿na by³o zmieniæ sposób scrapowania i rozszerzyæ jego funkcjonalnoœæ (np. zmieniæ silnik na inny ni¿ Selenium czy dodaæ rotuj¹ce proxy/user-Agenta)
-3. Dodaæ mo¿liwoœæ konfiguracji limitera
+0. !! Nie dziaÅ‚a pobieranie zasobÃ³w !!
+1. DodaÄ‡ testy
+2. WyabstrahowaÄ‡ metodÄ™ pobierania zasobÃ³w z URL, by moÅ¼na byÅ‚o zmieniÄ‡ sposÃ³b scrapowania i rozszerzyÄ‡ jego funkcjonalnoÅ›Ä‡ (np. zmieniÄ‡ silnik na inny niÅ¼ Selenium czy dodaÄ‡ rotujÄ…ce proxy/user-Agenta)
+3. DodaÄ‡ moÅ¼liwoÅ›Ä‡ konfiguracji limitera
 
-Przyk³adowy komunikat po uruchomienie kontenera
+PrzykÅ‚adowy komunikat po uruchomienie kontenera
 -------------
 ![Docker-screen](1.jpg?raw=true "Docker-screen")
