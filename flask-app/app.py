@@ -20,6 +20,8 @@ app = Flask(__name__)
 
 @app.route('/downloadResources/<websiteUrl>', methods=['GET'])
 def downloadResources(websiteUrl):
+	os.chdir("..")
+	os.chdir("flask-celery/")
 	shutil.make_archive(websiteUrl, 'zip', websiteUrl)
 	return send_file(websiteUrl + '.zip')
 
