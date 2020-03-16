@@ -1,5 +1,4 @@
-### Zadanie Semantive REST API - Dockerized
-
+### Flask + Celery + Redis REST API - dockerized
 ![Architektura](diagram1.jpg?raw=true "Architektura")
 
 - 4 endpointy API: żądanie tekstu z zadanego URL, żądanie zdjęć, pobranie zasobów i sprawdzenie statusu zadania
